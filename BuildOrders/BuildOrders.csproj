@@ -1,0 +1,219 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{274A3065-5BB3-4C74-BB30-1FFD146DBC95}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BuildOrders</RootNamespace>
+    <AssemblyName>BuildOrders</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="base classes\AbstractEuropeanColonyBuilder.cs" />
+    <Compile Include="base classes\AbstractNativeColony.cs" />
+    <Compile Include="base classes\AbstractNativeColonyBuilder.cs" />
+    <Compile Include="colonies\russians\Blockhouse.cs" />
+    <Compile Include="colonies\aztecs\AztecColonyBuilder.cs" />
+    <Compile Include="colonies\aztecs\AztecFirePit.cs" />
+    <Compile Include="colonies\aztecs\Aztecs.cs" />
+    <Compile Include="colonies\aztecs\AztecTownCenter.cs" />
+    <Compile Include="colonies\aztecs\AztecVillager.cs" />
+    <Compile Include="colonies\aztecs\AztecWarHut.cs" />
+    <Compile Include="colonies\aztecs\NoblesHut.cs" />
+    <Compile Include="colonies\chinese\ChineseCastle.cs" />
+    <Compile Include="colonies\chinese\ChineseColonyBuilder.cs" />
+    <Compile Include="colonies\chinese\ChineseTownCenter.cs" />
+    <Compile Include="colonies\chinese\WarAcademy.cs" />
+    <Compile Include="colonies\french\FrenchBarracks.cs" />
+    <Compile Include="colonies\chinese\ChineseVillager.cs" />
+    <Compile Include="colonies\Iroquois\Iroquois.cs" />
+    <Compile Include="colonies\Iroquois\IroquoisArtilleryFoundry.cs" />
+    <Compile Include="colonies\Iroquois\IroquoisColonyBuilder.cs" />
+    <Compile Include="colonies\Iroquois\IroquoisCorral.cs" />
+    <Compile Include="colonies\Iroquois\IroquoisFirePit.cs" />
+    <Compile Include="colonies\Iroquois\IroquoisTownCenter.cs" />
+    <Compile Include="colonies\Iroquois\IroquoisVillager.cs" />
+    <Compile Include="colonies\Iroquois\IroquoisWarHut.cs" />
+    <Compile Include="colonies\portuguese\PortugueseArtilleryFoundry.cs" />
+    <Compile Include="colonies\portuguese\PortugueseBarracks.cs" />
+    <Compile Include="colonies\portuguese\PortugueseColonyBuilder.cs" />
+    <Compile Include="colonies\portuguese\PortugueseStable.cs" />
+    <Compile Include="colonies\portuguese\PortugueseTownCenter.cs" />
+    <Compile Include="colonies\portuguese\PortugueseSettler.cs" />
+    <Compile Include="colonies\sioux\Sioux.cs" />
+    <Compile Include="colonies\sioux\SiouxColonyBuilder.cs" />
+    <Compile Include="colonies\sioux\SiouxCorral.cs" />
+    <Compile Include="colonies\sioux\SiouxTownCenter.cs" />
+    <Compile Include="colonies\sioux\SiouxVillager.cs" />
+    <Compile Include="common\buildings\economic\FirePit.cs" />
+    <Compile Include="common\buildings\economic\NativeMarket.cs" />
+    <Compile Include="common\buildings\military\Corral.cs" />
+    <Compile Include="common\buildings\military\WarHut.cs" />
+    <Compile Include="common\buildings\military\Castle.cs" />
+    <Compile Include="common\buildings\economic\Market.cs" />
+    <Compile Include="common\buildings\military\Barracks.cs" />
+    <Compile Include="base classes\AbstractAsianColonyBuilder.cs" />
+    <Compile Include="base classes\AbstractAsianColony.cs" />
+    <Compile Include="base classes\AbstractEuropeanColony.cs" />
+    <Compile Include="colonies\chinese\ConfucianAcademy.cs" />
+    <Compile Include="common\WagonBuilder.cs" />
+    <Compile Include="constants\cBuilding.cs" />
+    <Compile Include="colonies\british\British.cs" />
+    <Compile Include="colonies\british\BritishBarracks.cs" />
+    <Compile Include="colonies\british\BritishColonyBuilder.cs" />
+    <Compile Include="colonies\british\BritishFactory.cs" />
+    <Compile Include="colonies\british\BritishSettler.cs" />
+    <Compile Include="colonies\british\BritishStable.cs" />
+    <Compile Include="colonies\british\BritishTownCenter.cs" />
+    <Compile Include="common\buildings\military\ArtilleryFoundry.cs" />
+    <Compile Include="constants\ConstShipment.cs" />
+    <Compile Include="colonies\indians\IndianConsulate.cs" />
+    <Compile Include="colonies\indians\IndianBarracks.cs" />
+    <Compile Include="colonies\french\FrenchTownCenter.cs" />
+    <Compile Include="colonies\indians\IndianTownCenter.cs" />
+    <Compile Include="common\buildings\economic\Consulate.cs" />
+    <Compile Include="common\buildings\military\Factory.cs" />
+    <Compile Include="colonies\indians\IndianCastle.cs" />
+    <Compile Include="constants\cShipment.cs" />
+    <Compile Include="constants\cTech.cs" />
+    <Compile Include="constants\cUnit.cs" />
+    <Compile Include="colonies\french\FrenchStable.cs" />
+    <Compile Include="colonies\french\FrenchColonyBuilder.cs" />
+    <Compile Include="colonies\dutch\Dutch.cs" />
+    <Compile Include="colonies\dutch\DutchBarracks.cs" />
+    <Compile Include="colonies\dutch\DutchColonyBuilder.cs" />
+    <Compile Include="colonies\dutch\DutchSettler.cs" />
+    <Compile Include="colonies\dutch\DutchStable.cs" />
+    <Compile Include="colonies\dutch\DutchTownCenter.cs" />
+    <Compile Include="colonies\germans\GermanBarracks.cs" />
+    <Compile Include="colonies\germans\GermanColonyBuilder.cs" />
+    <Compile Include="colonies\germans\Germans.cs" />
+    <Compile Include="colonies\germans\GermanSettler.cs" />
+    <Compile Include="colonies\germans\GermanStable.cs" />
+    <Compile Include="colonies\germans\GermanTownCenter.cs" />
+    <Compile Include="interfaces\IVariableManipulator.cs" />
+    <Compile Include="colonies\japanese\Japanese.cs" />
+    <Compile Include="colonies\japanese\JapaneseColonyBuilder.cs" />
+    <Compile Include="colonies\japanese\JapaneseExplorer.cs" />
+    <Compile Include="colonies\japanese\JapaneseConsulate.cs" />
+    <Compile Include="colonies\japanese\JapaneseBarracks.cs" />
+    <Compile Include="colonies\japanese\JapaneseVillager.cs" />
+    <Compile Include="colonies\japanese\JapaneseCastle.cs" />
+    <Compile Include="colonies\japanese\JapaneseStable.cs" />
+    <Compile Include="colonies\japanese\JapaneseTownCenter.cs" />
+    <Compile Include="colonies\japanese\JapaneseMarket.cs" />
+    <Compile Include="colonies\chinese\Chinese.cs" />
+    <Compile Include="colonies\chinese\ChineseConsulate.cs" />
+    <Compile Include="colonies\portuguese\Portuguese.cs" />
+    <Compile Include="colonies\ottomans\Mosque.cs" />
+    <Compile Include="colonies\ottomans\OttomanArtilleryFoundry.cs" />
+    <Compile Include="colonies\ottomans\OttomanBarracks.cs" />
+    <Compile Include="colonies\ottomans\OttomanColonyBuilder.cs" />
+    <Compile Include="colonies\ottomans\Ottomans.cs" />
+    <Compile Include="colonies\ottomans\OttomanSettler.cs" />
+    <Compile Include="colonies\ottomans\OttomanStable.cs" />
+    <Compile Include="colonies\ottomans\OttomanTownCenter.cs" />
+    <Compile Include="colonies\russians\RussianColonyBuilder.cs" />
+    <Compile Include="colonies\russians\Russians.cs" />
+    <Compile Include="colonies\russians\RussianSettler.cs" />
+    <Compile Include="colonies\russians\RussianStable.cs" />
+    <Compile Include="colonies\russians\RussianTownCenter.cs" />
+    <Compile Include="scripting\InteractiveState.cs" />
+    <Compile Include="scripting\FunctionImporter.cs" />
+    <Compile Include="scripting\Function.cs" />
+    <Compile Include="scripting\InteractiveCommandParser.cs" />
+    <Compile Include="scripting\InteractiveParser.cs" />
+    <Compile Include="interfaces\IScriptable.cs" />
+    <Compile Include="scripting\AbstractCommandParser.cs" />
+    <Compile Include="scripting\ScriptCommandParser.cs" />
+    <Compile Include="scripting\ScriptParser.cs" />
+    <Compile Include="scripting\Variable.cs" />
+    <Compile Include="colonies\indians\IndianVillager.cs" />
+    <Compile Include="common\buildings\economic\AsianMarket.cs" />
+    <Compile Include="colonies\indians\IndiansColonyBuilder.cs" />
+    <Compile Include="base classes\AbstractUnitBuilding.cs" />
+    <Compile Include="constants\ConstBuilding.cs" />
+    <Compile Include="constants\ConstTech.cs" />
+    <Compile Include="constants\ConstUnit.cs" />
+    <Compile Include="colonies\indians\Caravanserai.cs" />
+    <Compile Include="base classes\AbstractColonyBuilder.cs" />
+    <Compile Include="base classes\AbstractBuilding.cs" />
+    <Compile Include="base classes\AbstractColony.cs" />
+    <Compile Include="Enums.cs" />
+    <Compile Include="common\Explorer.cs" />
+    <Compile Include="colonies\french\French.cs" />
+    <Compile Include="common\buildings\economic\HomeCity.cs" />
+    <Compile Include="colonies\indians\Indians.cs" />
+    <Compile Include="common\buildings\economic\EuropeanMarket.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="common\buildings\economic\TradingPost.cs" />
+    <Compile Include="base classes\AbstractVillager.cs" />
+    <Compile Include="colonies\french\Coureur.cs" />
+    <Compile Include="common\buildings\military\Stable.cs" />
+    <Compile Include="common\buildings\economic\TownCenter.cs" />
+    <Compile Include="colonies\chinese\SummerPalace.cs" />
+    <Compile Include="colonies\sioux\SiouxFirePit.cs" />
+    <Compile Include="colonies\sioux\SiouxWarHut.cs" />
+    <Compile Include="colonies\spanish\Spanish.cs" />
+    <Compile Include="colonies\spanish\SpanishBarracks.cs" />
+    <Compile Include="colonies\spanish\SpanishColonyBuilder.cs" />
+    <Compile Include="colonies\spanish\SpanishSettler.cs" />
+    <Compile Include="colonies\spanish\SpanishStable.cs" />
+    <Compile Include="colonies\spanish\SpanishTownCenter.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <Compile Include="interfaces\IBuilder.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="TODO.txt" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
