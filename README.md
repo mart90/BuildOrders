@@ -20,4 +20,5 @@ UPDATE NOTES
 
 1.03
 - Improved exception handling
+- Market: Fixed issue where some techs were still available after researching them
 - Indians: Fixed issue where Agra Fort spawned as British barracks instead of Indian
