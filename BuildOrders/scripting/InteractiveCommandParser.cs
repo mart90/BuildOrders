@@ -114,7 +114,6 @@ namespace BuildOrders
 
         public override void Log(string message)
         {
-
             string time = colonyBuilder.colony.Time();
             if (time.Length < 5)
             {
@@ -125,7 +124,7 @@ namespace BuildOrders
 
         public override void Abort(int exitcode)
         {
-            throw new InvalidOperationException();
+            throw new CommandParseError();
         }
     }
 }

@@ -27,9 +27,11 @@ namespace BuildOrders
                     ReadLine(input);
                 }
             }
-            catch (InvalidCastException e)
+            catch (Exception e)
             {
-                Save(new List<string> { "save", "error" });
+                if (colonyBuilder != null)
+                    Save(new List<string> { "save", "error" });
+
                 var writer = new StreamWriter(AppDomain.CurrentDomain.BaseDirectory + "/scripts/error.txt", true);
                 writer.Write("\nCommand: " + input);
                 writer.Write("\nErrMessage: " + e.Message);
@@ -114,7 +116,7 @@ namespace BuildOrders
                 parser.ReplaceVariablesAndFunctions(words);
                 result = parser.EvalBoolStatement(words);
             }
-            catch (InvalidOperationException)
+            catch (CommandParseError)
             {
                 return;
             }
@@ -305,7 +307,7 @@ namespace BuildOrders
                         ParseBuildOrderCommand(line);
                 }
             }
-            catch (InvalidOperationException)
+            catch (CommandParseError)
             {
                 Console.WriteLine("\nThe script was loaded up to line " + (linecursor + 1) + ", then failed due to the above error");
             }
@@ -367,7 +369,7 @@ namespace BuildOrders
                     lp.ParseLines();
                     UpdateVariables(lp.variables);
                 }
-                catch (InvalidOperationException)
+                catch (CommandParseError)
                 {
                     Revert();
                     return;
@@ -406,7 +408,7 @@ namespace BuildOrders
                 blockparser.ParseLines();
                 UpdateVariables(blockparser.variables);
             }
-            catch (InvalidOperationException)
+            catch (CommandParseError)
             {
                 Revert();
                 return;
@@ -445,7 +447,7 @@ namespace BuildOrders
                 blockparser.ParseLines();
                 UpdateVariables(blockparser.variables);
             }
-            catch (InvalidOperationException)
+            catch (CommandParseError)
             {
                 Revert();
                 return;

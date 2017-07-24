@@ -203,29 +203,37 @@ namespace BuildOrders
         public ColonyBuilder GetColonyFromUserInput(string line)
         {
             var words = new List<string>(line.Split(' '));
-            string civ = words[0];
-            Resource randomcrate = Resource.Food;
+            var civ = words[0];
+            var randomcrate = Resource.Food;
             var tpstart = false;
 
-            if (words.Count == 2)
+            if (words.Count == 2 && words[1] == "tpstart")
             {
-                if (words[1] == "tpstart")
-                {
-                    randomcrate = Resource.Wood;
-                    tpstart = true;
-                }
-                else
-                    randomcrate = TryParseResource(words[1]); 
+                randomcrate = Resource.Wood;
+                tpstart = true;
             }
-            else if (words.Count >= 3)
+            else
             {
-                if (TryParseResource(words[1]) != Resource.Wood && words[2] == "tpstart")
+                try
                 {
-                    Console.WriteLine("A TP start is only available with wood starts");
-                    return null;
-                }
-                else
                     randomcrate = TryParseResource(words[1]);
+                }
+                catch (NullReferenceException)
+                {
+                    Console.WriteLine("'" + words[1] + "' is not a valid crate start. Defauled to food");
+                    randomcrate = Resource.Food;
+                }
+
+                if (words.Count >= 3 && words[2] == "tpstart")
+                {
+                    if (randomcrate != Resource.Wood)
+                    {
+                        Console.WriteLine("A TP start is only available with wood starts");
+                        return null;
+                    }
+                    else
+                        tpstart = true;
+                }
             }
 
             switch (civ.ToLower())
