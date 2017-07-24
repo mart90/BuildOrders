@@ -17,3 +17,7 @@ UPDATE NOTES
 
 1.02
 - Colony properties ending in "count" now resolve correctly
+
+1.03
+- Improved exception handling
+- Indians: Fixed issue where Agra Fort spawned as British barracks instead of Indian
