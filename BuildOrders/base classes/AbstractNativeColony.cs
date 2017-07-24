@@ -47,6 +47,7 @@ namespace BuildOrders
         public void AddHuntingDogs()
         {
             foodGatherRateBonus += .1m;
+            RemoveAllowedTech(cTech.HuntingDogs);
         }
 
         public void AddLumberCeremony()
@@ -64,11 +65,13 @@ namespace BuildOrders
         public void AddForestSpiritCeremony()
         {
             woodGatherRateBonus += .2m;
+            RemoveAllowedTech(cTech.ForestSpiritCeremony);
         }
 
         public void AddPlacerMines()
         {
             coinGatherRateBonus += .1m;
+            RemoveAllowedTech(cTech.PlacerMines);
         }
 
         //Add politicians

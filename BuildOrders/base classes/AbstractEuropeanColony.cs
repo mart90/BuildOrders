@@ -90,6 +90,7 @@ namespace BuildOrders
         public void AddSteelTraps()
         {
             foodGatherRateBonus += .2m;
+            RemoveAllowedTech(cTech.SteelTraps);
         }      
                
         public void AddGangSaw()
@@ -107,6 +108,7 @@ namespace BuildOrders
         public void AddCircularSaw()
         {
             woodGatherRateBonus += .3m;
+            RemoveAllowedTech(cTech.CircularSaw);
         }      
                
         public void AddPlacerMines()
@@ -118,6 +120,7 @@ namespace BuildOrders
         public void AddAmalgamation()
         {
             coinGatherRateBonus += .2m;
+            RemoveAllowedTech(cTech.Amalgamation);
         }
         
         public void AddVeteranHussar()

@@ -41,6 +41,7 @@ namespace BuildOrders
         public void AddProfessionalHunters()
         {
             foodGatherRateBonus += .1m;
+            RemoveAllowedTech(cTech.ProfessionalHunters);
         }
 
         public void AddHanamiParties()
@@ -52,6 +53,7 @@ namespace BuildOrders
         public void AddYozakuraLanterns()
         {
             foodGatherRateBonus += .1m;
+            RemoveAllowedTech(cTech.YozakuraLanterns);
         }
 
         public void AddWaterWheel()
@@ -69,6 +71,7 @@ namespace BuildOrders
         public void AddTimberTrade()
         {
             woodGatherRateBonus += .3m;
+            RemoveAllowedTech(cTech.TimberTrade);
         }
 
         public void AddBlanketFilters()
@@ -80,6 +83,7 @@ namespace BuildOrders
         public void AddFlumeAndDitching()
         {
             coinGatherRateBonus += .1m;
+            RemoveAllowedTech(cTech.FlumeAndDitching);
         }
 
         public void AddCivilServants()
@@ -95,6 +99,7 @@ namespace BuildOrders
             foodGatherRateBonus += .1m;
             woodGatherRateBonus += .1m;
             coinGatherRateBonus += .1m;
+            RemoveAllowedTech(cTech.ImperialBureaucracy);
         }
 
         public virtual void AddCancelAlliance()
