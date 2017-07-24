@@ -291,7 +291,7 @@ namespace BuildOrders
         public void AddAgraFort()
         {
             age++;
-            unitBuildings.Add(new BritishBarracks());
+            unitBuildings.Add(new IndianBarracks());
             xp -= 20;
             switch (age)
             {
