@@ -121,8 +121,8 @@ namespace BuildOrders
         public static ConstShipment Cassador7           = new ConstShipment("Cassador7", 3, 7);
         public static ConstShipment OrganGun2           = new ConstShipment("OrganGun2", 3, 8);
         public static ConstShipment Doppelsoldner5      = new ConstShipment("Doppelsoldner5", 3, 10);
-        public static ConstShipment Uhlan6              = new ConstShipment("Uhlan9", 3, 12);
-        public static ConstShipment Uhlan5              = new ConstShipment("Uhlan8", 3, 10);
+        public static ConstShipment Uhlan6              = new ConstShipment("Uhlan6", 3, 12);
+        public static ConstShipment Uhlan5              = new ConstShipment("Uhlan5", 3, 10);
         public static ConstShipment WarWagon3           = new ConstShipment("WarWagon3", 3, 9);
         public static ConstShipment Ruyter9             = new ConstShipment("Ruyter9", 3, 9);
         public static ConstShipment Ruyter7             = new ConstShipment("Ruyter7", 3, 7);

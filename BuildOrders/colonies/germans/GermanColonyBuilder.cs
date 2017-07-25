@@ -27,8 +27,8 @@ namespace BuildOrders
         public override bool SendShipment()
         {
             shipmentsToSend[0] = shipmentsToSend[0].DeepCopy();
-            if (colony.age > 1 
-                && shipmentsToSend[0].name != "PolishWingedHussars")
+            if (colony.age > 1
+                && !Germans.ShipmentComesWithUhlans(shipmentsToSend[0].name))
             {
                 shipmentsToSend[0].populationcost += 2 * colony.age;
             }

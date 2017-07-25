@@ -77,13 +77,17 @@ namespace BuildOrders
         public override void AddShipment(ConstShipment shipment)
         {
             base.AddShipment(shipment);
-            if (age > 1)
+            if (age > 1 && ShipmentComesWithUhlans(shipment.name))
             {
-                if (shipment.name == "PolishWingedHussars")
-                    return;
-
                 AddUnits(cUnit.Uhlan, age);
             }
+        }
+
+        public static bool ShipmentComesWithUhlans(string shipmentname)
+        {
+            return shipmentname != "PolishWingedHussars"
+                && shipmentname != "Jaeger13"
+                && shipmentname != "BlackRider9";
         }
 
         public override int XPtonextShipment()
