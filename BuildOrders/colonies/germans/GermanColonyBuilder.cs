@@ -28,7 +28,7 @@ namespace BuildOrders
         {
             shipmentsToSend[0] = shipmentsToSend[0].DeepCopy();
             if (colony.age > 1
-                && !Germans.ShipmentComesWithUhlans(shipmentsToSend[0].name))
+                && Germans.ShipmentComesWithUhlans(shipmentsToSend[0].name))
             {
                 shipmentsToSend[0].populationcost += 2 * colony.age;
             }
