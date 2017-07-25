@@ -273,6 +273,10 @@ namespace BuildOrders
                 {
                     Console.WriteLine(building.timer + "\t" + building.techQueued.name);
                 }
+                else if (building is HomeCity)
+                {
+                    Console.WriteLine(building.timer + "\t" + ((HomeCity)building).shipmentQueued.name);
+                }
             }
             foreach (UnitBuilding building in colony.unitBuildings.FindAll(building => building.unitQueued != null))
             {
