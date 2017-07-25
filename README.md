@@ -22,3 +22,9 @@ UPDATE NOTES
 - Improved exception handling
 - Market: Fixed issue where some techs were still available after researching them
 - Indians: Fixed issue where Agra Fort spawned as British barracks instead of Indian
+
+1.04
+- Shipments that are underway are now shown in the queue
+- "?" command now only shows available colony-specific commands. The new "??" now shows all possible commands.
+- List commands: Added allowed dances for native civs
+- List commands: Removed "make wonder" for non-Asian civs
