@@ -5,26 +5,6 @@ https://docs.google.com/document/d/1Ny8elpZZ-BK2k5uxP4wK2tc6-quKHzUys1xJsSpVx0Q/
 
 It's possible you will need to make a manual exception for this app in your virus protection software.
 
+Update notes: https://docs.google.com/document/d/1SjViDhZ09KFLPrveCKDK8mEvNTYcZ4GLxxPlFMnBGEo/edit?usp=sharing
+
 Questions, feature requests or feedback? Contact Goodspeed on http://eso-community.net
-
-______________________________
-
-
-UPDATE NOTES
-
-1.01
-- Indians: Fixed a bug where arrival of Distributivism causes a null reference
-
-1.02
-- Colony properties ending in "count" now resolve correctly
-
-1.03
-- Improved exception handling
-- Market: Fixed issue where some techs were still available after researching them
-- Indians: Fixed issue where Agra Fort spawned as British barracks instead of Indian
-
-1.04
-- Shipments that are underway are now shown in the queue
-- "?" command now only shows available colony-specific commands. The new "??" now shows all possible commands.
-- List commands: Added allowed dances for native civs
-- List commands: Removed "make wonder" for non-Asian civs
