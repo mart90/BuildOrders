@@ -52,7 +52,10 @@ namespace BuildOrders
             switch (words[0])
             {
                 case "?":
-                    ListPossibleCommands();
+                    ListAllowedMakeCommands();
+                    break;
+                case "??":
+                    ListAllAllowedCommands();
                     break;
                 case "load":
                     Load(words);
@@ -534,108 +537,139 @@ namespace BuildOrders
             }
         }
 
-        public void ListPossibleCommands()
+        public void ListAllowedMakeCommands()
         {
-            Console.WriteLine("new");
-            Console.WriteLine("load [filename or history index]");
-
-            if (colonyBuilder != null)
+            if (colonyBuilder == null)
             {
-                Console.WriteLine("save [filename]");
-                Console.WriteLine("savelog [filename]");
-                Console.WriteLine("import [filename]");
-                Console.WriteLine("undo");
-                Console.WriteLine("history");
-                Console.WriteLine("show [keyword]\n");
+                Console.WriteLine("new");
+                Console.WriteLine("load [filename or history index]");
+                return;
+            }
 
-                Console.WriteLine("eval (not) [true/false statement]");
-                Console.WriteLine("print [variable or number colony field]\n");
+            Console.WriteLine("\nmake building [building]");
+            Console.WriteLine("  TradingPost");
+            foreach (ConstBuilding building in colonyBuilder.colony.villagers[0].allowedBuildings)
+            {
+                if (building.ageavailable <= colonyBuilder.colony.age
+                    && building.ageavailable != 0
+                    && building.name != "Dummy")
+                    Console.WriteLine("  " + building.name);
+            }
 
-                Console.WriteLine("continue [optional amount of seconds]");
-                Console.WriteLine("continue while (not) [true/false statement]");
-                Console.WriteLine("continue while [number colony variable name] [comparison operator] [number]\n");
-
-                Console.WriteLine("if (not) [true/false statement]");
-                Console.WriteLine("if [number colony variable name] [comparison operator] [number]\n");
-
-                Console.WriteLine("while (not) [true/false statement]");
-                Console.WriteLine("while [number colony variable name] [comparison operator] [number]\n");
-
-                Console.WriteLine("newvillsto [resource]");
-                Console.WriteLine("switchvills [from resource] [to resource] [amount]");
-                Console.WriteLine("allocatevills [food] [wood] [coin]");
-                Console.WriteLine("allocatebuildings [resource]");
-                Console.WriteLine("autovills [on or off]\n");
-
-                Console.WriteLine("$[variable name]");
-                Console.WriteLine("$[variable name] = [value or operation]");
-                Console.WriteLine("&[function name] [parameters separated by spaces]");
-
-                Console.WriteLine("\nmake building [building]");
-                Console.WriteLine("  TradingPost");
-                foreach (ConstBuilding building in colonyBuilder.colony.villagers[0].allowedBuildings)
+            Console.Write("\nmake tech [tech]\n  ");
+            var i = 1;
+            foreach (Building building in colonyBuilder.colony.AllBuildings())
+            {
+                foreach (ConstTech tech in building.allowedTechs)
                 {
-                    if (building.ageavailable <= colonyBuilder.colony.age && building.ageavailable != 0)
-                        Console.WriteLine("  " + building.name);
-                }
-
-                Console.Write("\nmake tech [tech]\n  ");
-                var i = 1;
-                foreach (Building building in colonyBuilder.colony.AllBuildings())
-                {
-                    foreach (ConstTech tech in building.allowedTechs)
-                    {
-                        if (tech.ageavailable > colonyBuilder.colony.age)
-                            continue;
-                        Console.Write(tech.name);
-                        for (var j = 0; j < 20 - tech.name.Length; j++)
-                            Console.Write(" ");
-                        Console.Write("\t");
-                        if (i % 4 == 0)
-                            Console.Write("\n  ");
-                        i++;
-                    }
-                }
-
-                Console.Write("\n\nmake unit [unit] [amount]\n  ");
-                i = 1;
-                foreach (UnitBuilding building in colonyBuilder.colony.unitBuildings)
-                {
-                    foreach (ConstUnit unit in building.allowedUnits)
-                    {
-                        if (unit.ageavailable > colonyBuilder.colony.age)
-                            continue;
-                        Console.Write(unit.name);
-                        for (var j = 0; j < 20 - unit.name.Length; j++)
-                            Console.Write(" ");
-                        Console.Write("\t");
-                        if (i % 4 == 0)
-                            Console.Write("\n  ");
-                        i++;
-                    }
-                }
-
-                Console.Write("\n\nshipment [shipment]\n  ");
-                i = 1;
-                foreach (ConstShipment shipment in colonyBuilder.colony.allowedShipments)
-                {
-                    Console.Write(shipment.name);
-                    for (var j = 0; j < 20 - shipment.name.Length; j++)
+                    if (tech.ageavailable > colonyBuilder.colony.age)
+                        continue;
+                    Console.Write(tech.name);
+                    for (var j = 0; j < 20 - tech.name.Length; j++)
                         Console.Write(" ");
                     Console.Write("\t");
                     if (i % 4 == 0)
                         Console.Write("\n  ");
                     i++;
                 }
+            }
 
+            Console.Write("\n\nmake unit [unit] [amount]\n  ");
+            i = 1;
+            foreach (UnitBuilding building in colonyBuilder.colony.unitBuildings)
+            {
+                foreach (ConstUnit unit in building.allowedUnits)
+                {
+                    if (unit.ageavailable > colonyBuilder.colony.age)
+                        continue;
+                    Console.Write(unit.name);
+                    for (var j = 0; j < 20 - unit.name.Length; j++)
+                        Console.Write(" ");
+                    Console.Write("\t");
+                    if (i % 4 == 0)
+                        Console.Write("\n  ");
+                    i++;
+                }
+            }
+
+            Console.Write("\n\nshipment [shipment]\n  ");
+            i = 1;
+            foreach (ConstShipment shipment in colonyBuilder.colony.allowedShipments)
+            {
+                Console.Write(shipment.name);
+                for (var j = 0; j < 20 - shipment.name.Length; j++)
+                    Console.Write(" ");
+                Console.Write("\t");
+                if (i % 4 == 0)
+                    Console.Write("\n  ");
+                i++;
+            }
+
+            if (colonyBuilder is AsianColonyBuilder)
+            {
                 Console.WriteLine("\n\nmake wonder [wonder] [amount of villagers]");
+
                 foreach (ConstBuilding building in colonyBuilder.colony.villagers[0].allowedBuildings)
                 {
                     if (building.ageavailable == 0)
                         Console.WriteLine("  " + building.name);
                 }
             }
+
+            if (colonyBuilder is NativeColonyBuilder)
+            {
+                var nativecolony = (NativeColony)colonyBuilder.colony;
+                if (nativecolony.firePit != null)
+                {
+                    Console.WriteLine("\n\ndance [dance]");
+
+                    foreach (Dance dance in nativecolony.firePit.allowedDances)
+                        Console.WriteLine("  " + dance.ToString());
+                }
+            }
+
             Console.WriteLine();
+        }
+
+        public void ListAllAllowedCommands()
+        {
+            Console.WriteLine("new");
+            Console.WriteLine("load [filename or history index]");
+
+            if (colonyBuilder == null)
+                return;
+
+            Console.WriteLine("save [filename]");
+            Console.WriteLine("savelog [filename]");
+            Console.WriteLine("import [filename]");
+            Console.WriteLine("undo");
+            Console.WriteLine("history");
+            Console.WriteLine("show [keyword]\n");
+
+            Console.WriteLine("eval (not) [true/false statement]");
+            Console.WriteLine("print [variable or number colony field]\n");
+
+            Console.WriteLine("continue [optional amount of seconds]");
+            Console.WriteLine("continue while (not) [true/false statement]");
+            Console.WriteLine("continue while [number colony variable name] [comparison operator] [number]\n");
+
+            Console.WriteLine("if (not) [true/false statement]");
+            Console.WriteLine("if [number colony variable name] [comparison operator] [number]\n");
+
+            Console.WriteLine("while (not) [true/false statement]");
+            Console.WriteLine("while [number colony variable name] [comparison operator] [number]\n");
+
+            Console.WriteLine("newvillsto [resource]");
+            Console.WriteLine("switchvills [from resource] [to resource] [amount]");
+            Console.WriteLine("allocatevills [food] [wood] [coin]");
+            Console.WriteLine("allocatebuildings [resource]");
+            Console.WriteLine("autovills [on or off]\n");
+
+            Console.WriteLine("$[variable name]");
+            Console.WriteLine("$[variable name] = [value or operation]");
+            Console.WriteLine("&[function name] [parameters separated by spaces]");
+
+            ListAllowedMakeCommands();
         }
     }
 }
