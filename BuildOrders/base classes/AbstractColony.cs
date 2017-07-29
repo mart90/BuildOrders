@@ -263,12 +263,12 @@ namespace BuildOrders
 
         public List<ConstUnit> FindUnitsByName(string name)
         {
-            return militaryUnits.FindAll(unit => unit.name == name);
+            return militaryUnits.FindAll(unit => unit.name.ToLower() == name);
         }
 
         public List<Building> FindBuildingsByName(string name)
         {
-            return AllBuildings().FindAll(building => building.commonName == name);
+            return AllBuildings().FindAll(building => building.commonName.ToLower() == name);
         }
 
         public object GetFieldValueByName(string name)

@@ -11,7 +11,7 @@ namespace BuildOrders
             SetInitialAllowedTechs();
         }
 
-        public string commonName;
+        public string commonName = "";
         public List<ConstTech> allowedTechs = new List<ConstTech>();
 
         public bool busy;
