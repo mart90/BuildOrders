@@ -227,6 +227,7 @@ namespace BuildOrders
             ShowTimeAndScore();
             ShowEco();
             ShowQueue();
+            ShowBuildings();
             ShowMilitary();
         }
 
@@ -308,6 +309,19 @@ namespace BuildOrders
             foreach (ConstUnit militaryunit in colony.militaryUnits.GroupBy(unit => unit.name).Select(group => group.First()))
             {
                 Console.WriteLine(colony.militaryUnits.FindAll(unit => unit.name == militaryunit.name).Count + " " + militaryunit.name);
+            }
+            Console.WriteLine();
+        }
+
+        public virtual void ShowBuildings()
+        {
+            Console.WriteLine("Buildings:\n----------");
+            foreach (Building building in colony.AllBuildings().GroupBy(building => building.commonName).Select(group => group.First()))
+            {
+                if (!(building is HomeCity))
+                {
+                    Console.WriteLine(colony.AllBuildings().FindAll(bldg => bldg.commonName == building.commonName).Count + " " + building.commonName);
+                }
             }
             Console.WriteLine();
         }

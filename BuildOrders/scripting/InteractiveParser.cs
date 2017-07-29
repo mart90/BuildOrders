@@ -212,6 +212,9 @@ namespace BuildOrders
                         case "military":
                             colonyBuilder.ShowMilitary();
                             break;
+                        case "buildings":
+                            colonyBuilder.ShowBuildings();
+                            break;
                     }
                 }
                 else
