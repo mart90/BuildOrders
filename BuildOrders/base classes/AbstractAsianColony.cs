@@ -22,6 +22,19 @@ namespace BuildOrders
             return food + wood + coin + export;
         }
 
+        public override Villager GetVillager()
+        { 
+            if (FoodGatherers().Count + WoodGatherers().Count + CoinGatherers().Count == 0)
+                return null;
+
+            if (FoodGatherers().Count >= Math.Max(WoodGatherers().Count, CoinGatherers().Count))
+                return FoodGatherers().Find(vill => !vill.constructing);
+            else if (WoodGatherers().Count > CoinGatherers().Count)
+                return WoodGatherers().Find(vill => !vill.constructing);
+            else
+                return CoinGatherers().Find(vill => !vill.constructing);
+        }
+
         //Add buildings
         public abstract void AddConsulate();
         public abstract void AddCastle();

@@ -436,6 +436,7 @@ namespace BuildOrders
         {
             if (FoodGatherers().Count + WoodGatherers().Count + CoinGatherers().Count == 0)
                 return null;
+
             if (FoodGatherers().Count >= Math.Max(WoodGatherers().Count, CoinGatherers().Count))
                 return FoodGatherers()[0];
             else if (WoodGatherers().Count > CoinGatherers().Count)
