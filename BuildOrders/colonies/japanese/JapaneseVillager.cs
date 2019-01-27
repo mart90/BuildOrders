@@ -17,6 +17,7 @@ namespace BuildOrders
                 cBuilding.Shrine,
                 cBuilding.Market,
                 cBuilding.Consulate,
+                cBuilding.Dock,
                 
                 //Military
                 cBuilding.Barracks,

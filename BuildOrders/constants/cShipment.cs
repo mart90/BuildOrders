@@ -30,6 +30,9 @@ namespace BuildOrders
         public static ConstShipment Distributivism      = new ConstShipment("Distributivism", 1);
         public static ConstShipment BankOfAmsterdam     = new ConstShipment("BankOfAmsterdam", 1);
         public static ConstShipment BankOfRotterdam     = new ConstShipment("BankOfRotterdam", 1);
+        public static ConstShipment Schooners           = new ConstShipment("Schooners", 1);
+        public static ConstShipment AdvancedDock        = new ConstShipment("AdvancedDock", 1);
+        public static ConstShipment EastIndiamen        = new ConstShipment("EastIndiamen", 1);
 
         //Asian
         public static ConstShipment Vills2              = new ConstShipment("Vills2", 1, 2, false, 0, 0, 0, true);
@@ -52,6 +55,7 @@ namespace BuildOrders
         public static ConstShipment Crates600f          = new ConstShipment("Crates600f", 2, 0, false, 0, 0, 0, true);
         public static ConstShipment BankWagon           = new ConstShipment("BankWagon", 2);
         public static ConstShipment Boyars              = new ConstShipment("Boyars", 2);
+        public static ConstShipment RenderingPlant      = new ConstShipment("RenderingPlant", 2);
 
         public static ConstShipment Crossbowman8        = new ConstShipment("Crossbowman8", 2, 8);
         public static ConstShipment Pikeman8            = new ConstShipment("Pikeman8", 2, 8);
@@ -105,6 +109,7 @@ namespace BuildOrders
         public static ConstShipment Crates1000c         = new ConstShipment("Crates1000c", 3, 0, false, 0, 0, 0, true);
         public static ConstShipment Crates1000f         = new ConstShipment("Crates1000f", 3);
         public static ConstShipment SuvorovReforms      = new ConstShipment("SuvorovReforms", 3);
+        public static ConstShipment SpanishGold         = new ConstShipment("SpanishGold", 3);
 
         public static ConstShipment Skirmisher8         = new ConstShipment("Skirmisher8", 3, 8);
         public static ConstShipment Skirmisher7         = new ConstShipment("Skirmisher7", 3, 7);
@@ -175,6 +180,7 @@ namespace BuildOrders
         public static ConstShipment HandMortar7         = new ConstShipment("HandMortar7", 3, 7);
 
         //Native
+        public static ConstShipment Crates800           = new ConstShipment("Crates800", 2);
         public static ConstShipment Crates800c          = new ConstShipment("Crates800c", 3, 0, true);
         public static ConstShipment Crates1200          = new ConstShipment("Crates1200", 3);
 
@@ -234,7 +240,7 @@ namespace BuildOrders
         public static ConstShipment Cossack9            = new ConstShipment("Cossack9", 4, 9);
 
         //Asian
-        public static ConstShipment OldHanReforms       = new ConstShipment("OldHanReforms", 4, 0, false, 1000);
+        public static ConstShipment OldHanReforms       = new ConstShipment("OldHanReforms", 4);
 
         public static ConstShipment Urumi9              = new ConstShipment("Urumi9", 4, 18, true, 750);
         public static ConstShipment UrumiRegiment       = new ConstShipment("UrumiRegiment", 4, 22, false, 1000);

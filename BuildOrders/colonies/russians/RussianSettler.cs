@@ -14,6 +14,7 @@ namespace BuildOrders
                 cBuilding.House,
                 cBuilding.TradingPost,
                 cBuilding.Market,
+                cBuilding.Dock,
                 
                 //Military
                 cBuilding.Blockhouse,

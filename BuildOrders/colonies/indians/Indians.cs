@@ -36,9 +36,12 @@ namespace BuildOrders
                 cShipment.Distributivism,
                 cShipment.GoodFaithAgreements,
                 cShipment.EconomicTheory,
+                cShipment.AdvancedDock,
+                cShipment.EastIndiamen,
 
                 //Colonial
                 cShipment.Export300,
+                cShipment.RenderingPlant,
                 cShipment.Crates600c,
                 cShipment.Crates600w,
                 cShipment.Crates700f,

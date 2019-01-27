@@ -91,11 +91,18 @@ namespace BuildOrders
                     ValidateWordCount(words.Count, 2);
                     NewVillsTo(words[1]);
                     break;
+                case "newboatsto":
+                    ValidateWordCount(words.Count, 2);
+                    NewBoatsTo(words[1]);
+                    break;
                 case "switchvills":
                     SwitchVills(words);
                     break;
                 case "allocatevills":
                     AllocateVills(words);
+                    break;
+                case "allocateboats":
+                    AllocateBoats(words);
                     break;
                 case "allocatebuildings":
                     ValidateWordCount(words.Count, 2);
@@ -106,6 +113,9 @@ namespace BuildOrders
                     break;
                 case "autovills":
                     AutoVills(words);
+                    break;
+                case "autoboats":
+                    AutoBoats(words);
                     break;
                 case "import":
                     Import(words);
@@ -492,6 +502,11 @@ namespace BuildOrders
             colonyBuilder.colony.newVillstoResource = TryParseResource(sresource);
         }
 
+        public void NewBoatsTo(string sresource)
+        {
+            colonyBuilder.colony.newBoatstoResource = TryParseResource(sresource);
+        }
+
         public void AutoVills(List<string> words)
         {
             if (words[1] == "on")
@@ -501,6 +516,19 @@ namespace BuildOrders
             else
             {
                 Log("ERROR 109: Invalid input '" + words[1] + "'. AutoVills accepts either 'on' or 'off'");
+                Abort(109);
+            }
+        }
+
+        public void AutoBoats(List<string> words)
+        {
+            if (words[1] == "on")
+                colonyBuilder.autoBoats = true;
+            else if (words[1] == "off")
+                colonyBuilder.autoBoats = false;
+            else
+            {
+                Log("ERROR 109: Invalid input '" + words[1] + "'. AutoBoats accepts either 'on' or 'off'");
                 Abort(109);
             }
         }
@@ -741,6 +769,22 @@ namespace BuildOrders
                 && int.TryParse(words[3], out coin))
             {
                 colonyBuilder.colony.AllocateVills(food, wood, coin);
+            }
+            else
+            {
+                Log("ERROR 104: Invalid ratio given for vills to allocate");
+                Abort(104);
+            }
+        }
+
+        public void AllocateBoats(List<string> words)
+        {
+            ValidateWordCount(words.Count, 3);
+            int food, coin;
+            if (int.TryParse(words[1], out food)
+                && int.TryParse(words[2], out coin))
+            {
+                colonyBuilder.colony.AllocateBoats(food, coin);
             }
             else
             {

@@ -34,10 +34,13 @@ namespace BuildOrders
                 cShipment.Crates300w,
                 cShipment.VirginiaCompany,
                 cShipment.EconomicTheory,
+                cShipment.Schooners,
+                cShipment.AdvancedDock,
 
                 //Colonial
                 cShipment.Vills4,
                 cShipment.Vills5,
+                cShipment.RenderingPlant,
                 cShipment.Crates600c,
                 cShipment.Crates600w,
                 cShipment.Crates700c,

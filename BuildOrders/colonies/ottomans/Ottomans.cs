@@ -35,9 +35,12 @@ namespace BuildOrders
                 cShipment.Vills3,
                 cShipment.SilkRoad,
                 cShipment.Crates300w,
+                cShipment.Schooners,
+                cShipment.AdvancedDock,
 
                 //Colonial
                 cShipment.Vills4,
+                cShipment.RenderingPlant,
                 cShipment.Crates600c,
                 cShipment.Crates600w,
                 cShipment.Crates700c,

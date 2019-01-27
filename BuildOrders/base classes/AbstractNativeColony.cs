@@ -42,6 +42,10 @@ namespace BuildOrders
         {
             techBuildings.Add(new NativeMarket());
         }
+        public void AddDock()
+        {
+            unitBuildings.Add(new NativeDock());
+        }
 
         //Add techs
         public void AddHuntingDogs()
@@ -72,6 +76,18 @@ namespace BuildOrders
         {
             coinGatherRateBonus += .1m;
             RemoveAllowedTech(cTech.PlacerMines);
+        }
+
+        public void AddGillNets()
+        {
+            fishGatherRateBonus += .15m;
+            whaleGatherRateBonus += .15m;
+        }
+
+        public void AddLongLines()
+        {
+            fishGatherRateBonus += .2m;
+            whaleGatherRateBonus += .2m;
         }
 
         //Add politicians

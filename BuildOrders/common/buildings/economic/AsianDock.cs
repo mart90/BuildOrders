@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace BuildOrders
 {
     [Serializable]
-    public class OttomanBarracks : Barracks
+    class AsianDock : Dock
     {
         public override void SetInitialAllowedTechs() { }
 
@@ -12,7 +12,7 @@ namespace BuildOrders
         {
             allowedUnits.AddRange(new List<ConstUnit>
             {
-                cUnit.Janissary,
+                cUnit.FishingBoat
             });
         }
     }

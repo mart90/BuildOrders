@@ -22,6 +22,8 @@ namespace BuildOrders
         }
         public Spanish() { }
 
+        public bool spanishGold = false;
+
         public override void SetAllowedShipments()
         {
             allowedShipments.AddRange(new List<ConstShipment>
@@ -31,10 +33,13 @@ namespace BuildOrders
                 cShipment.Crates300w,
                 cShipment.AdvancedTradingPost,
                 cShipment.EconomicTheory,
+                cShipment.Schooners,
+                cShipment.AdvancedDock,
 
                 //Colonial
                 cShipment.Vills4,
                 cShipment.Vills5,
+                cShipment.RenderingPlant,
                 cShipment.Crates600c,
                 cShipment.Crates600w,
                 cShipment.Crates700c,
@@ -49,6 +54,7 @@ namespace BuildOrders
                 //Fortress
                 cShipment.Crates1000w,
                 cShipment.Crates1000f,
+                cShipment.SpanishGold,
 
                 cShipment.Rodelero8,
                 cShipment.Rodelero9,
@@ -71,6 +77,15 @@ namespace BuildOrders
                 cShipment.Pikeman24,
                 cShipment.HeavyCannon2,
             });
+        }
+
+        public override void AddShipment(ConstShipment shipment)
+        {
+            if (spanishGold)
+            {
+                coinCrateSeconds += 40;
+            }
+            base.AddShipment(shipment);
         }
 
         //Add units
@@ -121,6 +136,12 @@ namespace BuildOrders
         }
 
         //Add shipments
+        public void AddSpanishGold()
+        {
+            coinCrateSeconds += 40;
+            spanishGold = true;
+        }
+
         public void AddPikeman8()
         {
             AddUnits(cUnit.Pikeman, 8);

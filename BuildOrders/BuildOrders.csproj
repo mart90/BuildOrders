@@ -84,7 +84,11 @@
     <Compile Include="colonies\sioux\SiouxTownCenter.cs" />
     <Compile Include="colonies\sioux\SiouxVillager.cs" />
     <Compile Include="CommandParseError.cs" />
+    <Compile Include="common\buildings\economic\AsianDock.cs" />
+    <Compile Include="common\buildings\economic\Dock.cs" />
+    <Compile Include="common\buildings\economic\EuropeanDock.cs" />
     <Compile Include="common\buildings\economic\FirePit.cs" />
+    <Compile Include="common\buildings\economic\NativeDock.cs" />
     <Compile Include="common\buildings\economic\NativeMarket.cs" />
     <Compile Include="common\buildings\military\Corral.cs" />
     <Compile Include="common\buildings\military\WarHut.cs" />
@@ -95,6 +99,7 @@
     <Compile Include="base classes\AbstractAsianColony.cs" />
     <Compile Include="base classes\AbstractEuropeanColony.cs" />
     <Compile Include="colonies\chinese\ConfucianAcademy.cs" />
+    <Compile Include="common\FishingBoat.cs" />
     <Compile Include="common\WagonBuilder.cs" />
     <Compile Include="constants\cBuilding.cs" />
     <Compile Include="colonies\british\British.cs" />
@@ -130,6 +135,7 @@
     <Compile Include="colonies\germans\GermanSettler.cs" />
     <Compile Include="colonies\germans\GermanStable.cs" />
     <Compile Include="colonies\germans\GermanTownCenter.cs" />
+    <Compile Include="interfaces\IGatherer.cs" />
     <Compile Include="interfaces\IVariableManipulator.cs" />
     <Compile Include="colonies\japanese\Japanese.cs" />
     <Compile Include="colonies\japanese\JapaneseColonyBuilder.cs" />

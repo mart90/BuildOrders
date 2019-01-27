@@ -37,6 +37,7 @@ namespace BuildOrders
         public List<Explorer> explorers = new List<Explorer>();
         public int age = 1;
         public Resource newVillstoResource = Resource.Food;
+        public Resource newBoatstoResource = Resource.Food;
         public Resource randomCrate;
         public int startTime;
         public int population;
@@ -64,12 +65,28 @@ namespace BuildOrders
             return villagers.FindAll(vill => vill.resourceGathering == Resource.Coin);
         }
 
+        public List<FishingBoat> FishGatherers()
+        {
+            return fishingBoats.FindAll(boat => boat.resourceGathering == Resource.Food);
+        }
+
+        public List<FishingBoat> WhaleGatherers()
+        {
+            return fishingBoats.FindAll(boat => boat.resourceGathering == Resource.Coin);
+        }
+
         public double foodBaseGatherRate = .84;
         public double woodBaseGatherRate = .5;
         public double coinBaseGatherRate = .6;
+        public double fishBaseGatherRate = .67;
+        public double whaleBaseGatherRate = .5;
+
         public decimal foodGatherRateBonus = 1.0m;
         public decimal woodGatherRateBonus = 1.0m;
         public decimal coinGatherRateBonus = 1.0m;
+        public decimal fishGatherRateBonus = 1.0m;
+        public decimal whaleGatherRateBonus = 1.0m;
+
         public bool stageCoach;
         public Resource buildingsGathering = Resource.Default;
 
@@ -85,6 +102,7 @@ namespace BuildOrders
 
         //Units
         public List<Villager> villagers = new List<Villager>();
+        public List<FishingBoat> fishingBoats = new List<FishingBoat>();
         public List<ConstUnit> militaryUnits = new List<ConstUnit>();
 
         //Buildings
@@ -100,9 +118,20 @@ namespace BuildOrders
         public List<ConstShipment> allowedShipments = new List<ConstShipment>();
         public int shipmentsAvailable;
         public List<ConstShipment> shipmentsSent = new List<ConstShipment>();
+
+        public bool advancedDock;
+        public bool schooners;
         
         //Add units
         public abstract void AddVillager(int amount = 1);
+
+        public void AddFishingBoat(int amount = 1)
+        {
+            for (var i = 0; i < amount; i++)
+            {
+                fishingBoats.Add(new FishingBoat());
+            }
+        }
 
         //Add buildings
         public abstract void AddMarket();
@@ -251,6 +280,23 @@ namespace BuildOrders
             AddUnits(cUnit.Mameluke, 4);
         }
 
+        public void AddSchooners()
+        {
+            schooners = true;
+        }
+
+        public void AddAdvancedDock()
+        {
+            advancedDock = true;
+        }
+
+        public void AddRenderingPlant()
+        {
+            fishGatherRateBonus += .3m;
+            whaleGatherRateBonus += .3m;
+        }
+
+
         public List<Building> FindBuildingsByTech(ConstTech tech)
         {
             return AllBuildings().FindAll(building => building.allowedTechs.Find(atech => atech.name == tech.name) != null);
@@ -280,6 +326,8 @@ namespace BuildOrders
         {
             if (name == "villager")
                 return villagers.Count;
+            if (name == "fishingboat")
+                return fishingBoats.Count;
 
             return FindUnitsByName(name).Count;
         }
@@ -328,6 +376,9 @@ namespace BuildOrders
             food += foodBaseGatherRate * (double)foodGatherRateBonus * FoodGatherers().Count;
             wood += woodBaseGatherRate * (double)woodGatherRateBonus * WoodGatherers().Count;
             coin += coinBaseGatherRate * (double)coinGatherRateBonus * CoinGatherers().Count;
+
+            food += fishBaseGatherRate * (double)fishGatherRateBonus * FishGatherers().Count;
+            coin += whaleBaseGatherRate * (double)whaleGatherRateBonus * WhaleGatherers().Count;
         }
 
         public virtual void GatherFromTPs()
@@ -448,6 +499,7 @@ namespace BuildOrders
         public void HandleIdles()
         {
             IdleVillsToResource(newVillstoResource);
+            IdleFishingBoatsToResource(newBoatstoResource);
         }
 
         public bool SwitchVills(Resource fromResource, Resource toResource, int amount)
@@ -488,10 +540,21 @@ namespace BuildOrders
             return villagers.FindAll(vill => vill.idle);
         }
 
+        public List<FishingBoat> IdleFishingBoats()
+        {
+            return fishingBoats.FindAll(boat => boat.idle);
+        }
+
         public void IdleVillsToResource(Resource resource)
         {
             foreach (Villager vill in IdleVillagers())
                 vill.GatherResource(resource);
+        }
+
+        public void IdleFishingBoatsToResource(Resource resource)
+        {
+            foreach (FishingBoat boat in IdleFishingBoats())
+                boat.GatherResource(resource);
         }
 
         public void AllocateVills(int food, int wood, int coin)
@@ -528,6 +591,34 @@ namespace BuildOrders
                 vill.GatherResource(newVillstoResource);
             }
             Log("Allocated " + FoodGatherers().Count + " vills to food, " + WoodGatherers().Count + " to wood, " + CoinGatherers().Count + " to coin");
+        }
+
+        public void AllocateBoats(int food, int coin)
+        {
+            foreach (FishingBoat boat in fishingBoats)
+            {
+                boat.StopGathering();
+            }
+
+            double total = food + coin;
+            double boatstofood = fishingBoats.Count * (food / total);
+            double boatstocoin = fishingBoats.Count * (coin / total);
+
+            for (int i = 0; i < (int)boatstofood; i++)
+            {
+                fishingBoats[0].GatherResource(Resource.Food);
+                fishingBoats.RemoveAt(0);
+            }
+            for (int i = 0; i < (int)boatstocoin; i++)
+            {
+                fishingBoats[0].GatherResource(Resource.Coin);
+                fishingBoats.RemoveAt(0);
+            }
+            foreach (FishingBoat boat in fishingBoats)
+            {
+                boat.GatherResource(newBoatstoResource);
+            }
+            Log("Allocated " + FishGatherers().Count + " fishing boats to food, " + WhaleGatherers().Count + " to coin");
         }
 
         public List<Villager> Gatherers()
@@ -645,6 +736,8 @@ namespace BuildOrders
         {
             if (unit.name == "Villager")
                 AddVillager(amount);
+            else if (unit.name == "FishingBoat")
+                AddFishingBoat(amount);
             else
             {
                 for (int i = 0; i < amount; i++)

@@ -22,7 +22,8 @@ namespace BuildOrders
         public static ConstUnit Villager                = new ConstUnit("Villager", 100, 0, 0, 1, 25, 1, 10);
         public static ConstUnit DutchVillager           = new ConstUnit("Villager", 0, 0, 100, 1, 25, 1, 10);
         public static ConstUnit IndianVillager          = new ConstUnit("Villager", 0, 100, 0, 1, 25, 1, 10);
-        public static ConstUnit Coureur                 = new ConstUnit("Villager", 120, 0, 0, 1, 29, 1, 12);
+        public static ConstUnit Coureur                 = new ConstUnit("Villager", 125, 0, 0, 1, 29, 1, 12);
+        public static ConstUnit FishingBoat             = new ConstUnit("FishingBoat", 0, 70, 0, 1, 25, 1, 7);
 
         //INFANTRY
         //EU
@@ -33,7 +34,7 @@ namespace BuildOrders
         public static ConstUnit Skirmisher              = new ConstUnit("Skirmisher", 50, 0, 65, 1, 33, 3, 12);
         public static ConstUnit Cassadore               = new ConstUnit("Cassadore", 80, 0, 35, 1, 33, 3, 12);
         public static ConstUnit Doppelsoldner           = new ConstUnit("Doppelsoldner", 75, 0, 125, 2, 45, 2, 20);
-        public static ConstUnit Janissary               = new ConstUnit("Janissary", 100, 0, 25, 1, 34, 2, 13);
+        public static ConstUnit Janissary               = new ConstUnit("Janissary", 90, 0, 25, 1, 34, 2, 12);
         public static ConstUnit Halberdier              = new ConstUnit("Halberdier", 50, 0, 70, 1, 33, 3, 13);
         public static ConstUnit Rodelero                = new ConstUnit("Rodelero", 65, 0, 35, 1, 30, 2, 10);
         public static ConstUnit Strelet                 = new ConstUnit("Strelet", 0, 0, 0, 1, 0, 2, 0);

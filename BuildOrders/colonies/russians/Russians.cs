@@ -33,8 +33,11 @@ namespace BuildOrders
                 cShipment.AdvancedTradingPost,
                 cShipment.Distributivism,
                 cShipment.Crates300w,
+                cShipment.Schooners,
+                cShipment.AdvancedDock,
 
                 //Colonial
+                cShipment.RenderingPlant,
                 cShipment.Crates600c,
                 cShipment.Crates600w,
                 cShipment.Crates700c,

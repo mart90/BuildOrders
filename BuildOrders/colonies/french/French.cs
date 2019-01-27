@@ -29,9 +29,11 @@ namespace BuildOrders
                 //Discovery
                 cShipment.Vills3,
                 cShipment.EconomicTheory,
+                cShipment.AdvancedDock,
 
                 //Colonial
                 cShipment.Vills4,
+                cShipment.RenderingPlant,
                 cShipment.Crates600c,
                 cShipment.Crates600w,
                 cShipment.Crates700c,

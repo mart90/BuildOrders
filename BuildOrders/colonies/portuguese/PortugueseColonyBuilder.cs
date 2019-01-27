@@ -28,7 +28,7 @@ namespace BuildOrders
             if (unit.name == "Villager")
             {
                 unit = unit.DeepCopy();
-                unit.foodcost = 80;
+                unit.foodcost = 85;
             }
             return base.MakeUnit(unit);
         }

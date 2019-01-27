@@ -15,6 +15,7 @@ namespace BuildOrders
                 //Economic
                 cBuilding.House,
                 cBuilding.Market,
+                cBuilding.Dock,
                 
                 //Military
                 cBuilding.Barracks,

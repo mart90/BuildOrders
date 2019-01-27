@@ -15,6 +15,7 @@ namespace BuildOrders
                 cBuilding.Manor,
                 cBuilding.TradingPost,
                 cBuilding.Market,
+                cBuilding.Dock,
                 
                 //Military
                 cBuilding.Barracks,

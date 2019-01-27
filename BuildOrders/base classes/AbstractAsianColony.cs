@@ -9,6 +9,7 @@ namespace BuildOrders
         public double export = 100;
         public bool export300;
         public bool goodFaithAgreements;
+        public bool eastIndiamen;
         public Consulate consulate;
 
         public override void Income()
@@ -42,6 +43,11 @@ namespace BuildOrders
         public override void AddMarket()
         {
             techBuildings.Add(new AsianMarket());
+        }
+
+        public void AddDock()
+        {
+            unitBuildings.Add(new AsianDock());
         }
 
         //Add techs
@@ -161,6 +167,12 @@ namespace BuildOrders
         public void AddGoodFaithAgreements()
         {
             goodFaithAgreements = true;
+        }
+
+        public void AddEastIndiamen()
+        {
+            unitBuildings.Add(new AsianDock());
+            eastIndiamen = true;
         }
 
         public void AddIntervention()

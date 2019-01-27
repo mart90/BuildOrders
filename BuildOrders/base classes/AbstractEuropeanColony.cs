@@ -80,6 +80,11 @@ namespace BuildOrders
             unitBuildings.Add(new ArtilleryFoundry());
         }
 
+        public void AddDock()
+        {
+            unitBuildings.Add(new EuropeanDock());
+        }
+
         //Add techs
         public void AddHuntingDogs()
         {
@@ -148,6 +153,18 @@ namespace BuildOrders
         public virtual void AddMassProduction()
         {
             cUnit.HeavyCannon.traintime = 86;
+        }
+
+        public void AddGillNets()
+        {
+            fishGatherRateBonus += .15m;
+            whaleGatherRateBonus += .15m;
+        }
+
+        public void AddLongLines()
+        {
+            fishGatherRateBonus += .2m;
+            whaleGatherRateBonus += .2m;
         }
 
         //Add shipments

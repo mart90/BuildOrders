@@ -90,5 +90,15 @@ namespace BuildOrders
             }
             return false;
         }
+
+        public override bool MakeUnit(ConstUnit unit)
+        {
+            if (((AsianColony)colony).eastIndiamen)
+            {
+                unit = unit.DeepCopy();
+                unit.woodcost -= 20;
+            }
+            return base.MakeUnit(unit);
+        }
     }
 }

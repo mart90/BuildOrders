@@ -109,12 +109,12 @@ namespace BuildOrders
         public static ConstTech RussianExpeditionaryForce       = new ConstTech("RussianExpeditionaryForce", 0, 0, 0, 40, 3, 800);
 
         //Church
-        public static ConstTech MilletSystem            = new ConstTech("MilletSystem", 0, 100, 0, 15, 1);
-        public static ConstTech KopruluViziers          = new ConstTech("KopruluViziers", 0, 250, 0, 15, 2);
-        public static ConstTech AbbassidMarket          = new ConstTech("AbbassidMarket", 0, 600, 0, 15, 2);
-        public static ConstTech Topkapi                 = new ConstTech("Topkapi", 0, 400, 400, 15, 3);
-        public static ConstTech GalataTowerDistrict     = new ConstTech("GalataTowerDistrict", 0, 0, 200, 15, 2);
-        public static ConstTech Tanzimat                = new ConstTech("Tanzimat", 400, 400, 400, 15, 4);
+        public static ConstTech MilletSystem            = new ConstTech("MilletSystem", 0, 50, 0, 15, 1);
+        public static ConstTech KopruluViziers          = new ConstTech("KopruluViziers", 0, 125, 0, 15, 2);
+        public static ConstTech AbbassidMarket          = new ConstTech("AbbassidMarket", 0, 300, 0, 15, 2);
+        public static ConstTech Topkapi                 = new ConstTech("Topkapi", 0, 200, 200, 15, 3);
+        public static ConstTech GalataTowerDistrict     = new ConstTech("GalataTowerDistrict", 0, 0, 100, 15, 2);
+        public static ConstTech Tanzimat                = new ConstTech("Tanzimat", 200, 200, 200, 15, 4);
 
         //Trading post
         public static ConstTech StageCoach              = new ConstTech("StageCoach", 200, 200, 0, 60, 2);
@@ -124,5 +124,9 @@ namespace BuildOrders
         public static ConstTech WaterPower              = new ConstTech("WaterPower", 250, 0, 250, 30, 4);
         public static ConstTech SteamPower              = new ConstTech("SteamPower", 250, 250, 0, 30, 4);
         public static ConstTech MassProduction          = new ConstTech("MassProduction", 300, 0, 300, 30, 4);
+
+        //Dock
+        public static ConstTech GillNets                = new ConstTech("GillNets", 0, 90, 90, 30, 1);
+        public static ConstTech LongLines               = new ConstTech("LongLines", 0, 200, 200, 30, 2);
     }
 }

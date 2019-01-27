@@ -44,10 +44,13 @@ namespace BuildOrders
                 cShipment.Vills2,
                 cShipment.HeavenlyKami,
                 cShipment.GoodFaithAgreements,
+                cShipment.AdvancedDock,
+                cShipment.EastIndiamen,
 
                 //Colonial
                 cShipment.Export300,
                 cShipment.Vills4,
+                cShipment.RenderingPlant,
                 cShipment.Crates600w,
                 cShipment.Crates600c,
                 cShipment.Crates600f,
@@ -271,7 +274,7 @@ namespace BuildOrders
 
         public void AddFishingFleet()
         {
-            AddVillager(3);
+            AddFishingBoat(3);
             population += 3;
             consulate.allowedTechs.Remove(cTech.FishingFleet);
         }

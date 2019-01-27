@@ -34,9 +34,12 @@ namespace BuildOrders
                 cShipment.Crates300w,
                 cShipment.BankOfAmsterdam,
                 cShipment.BankOfRotterdam,
+                cShipment.Schooners,
+                cShipment.AdvancedDock,
 
                 //Colonial
                 cShipment.Vills4,
+                cShipment.RenderingPlant,
                 cShipment.Crates600c,
                 cShipment.Crates600w,
                 cShipment.Crates700c,

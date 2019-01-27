@@ -663,10 +663,13 @@ namespace BuildOrders
             Console.WriteLine("while [number colony variable name] [comparison operator] [number]\n");
 
             Console.WriteLine("newvillsto [resource]");
+            Console.WriteLine("newboatsto [resource]");
             Console.WriteLine("switchvills [from resource] [to resource] [amount]");
             Console.WriteLine("allocatevills [food] [wood] [coin]");
+            Console.WriteLine("allocateboats [food] [coin]");
             Console.WriteLine("allocatebuildings [resource]");
-            Console.WriteLine("autovills [on or off]\n");
+            Console.WriteLine("autovills [on or off]");
+            Console.WriteLine("autoboats [on or off]\n");
 
             Console.WriteLine("$[variable name]");
             Console.WriteLine("$[variable name] = [value or operation]");

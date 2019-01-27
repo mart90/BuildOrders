@@ -32,10 +32,12 @@ namespace BuildOrders
                 //Discovery
                 cShipment.SettlerWagon2,
                 cShipment.Crates300w,
+                cShipment.AdvancedDock,
 
                 //Colonial
                 cShipment.ColoSettlerWagon2,
                 cShipment.SettlerWagon3,
+                cShipment.RenderingPlant,
                 cShipment.Crates600c,
                 cShipment.Crates600w,
                 cShipment.Crates700c,

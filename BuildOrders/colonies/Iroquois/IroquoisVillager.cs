@@ -16,6 +16,7 @@ namespace BuildOrders
                 cBuilding.FirePit,
                 cBuilding.TradingPost,
                 cBuilding.Longhouse,
+                cBuilding.Dock,
 
                 //Military
                 cBuilding.WarHut,

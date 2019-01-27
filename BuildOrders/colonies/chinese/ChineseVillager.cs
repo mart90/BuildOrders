@@ -17,6 +17,7 @@ namespace BuildOrders
                 cBuilding.Village,
                 cBuilding.Market,
                 cBuilding.Consulate,
+                cBuilding.Dock,
                 
                 //Military
                 cBuilding.WarAcademy,

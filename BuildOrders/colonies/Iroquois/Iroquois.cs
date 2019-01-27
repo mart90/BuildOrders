@@ -31,10 +31,12 @@ namespace BuildOrders
                 //Discovery
                 cShipment.Vills3,
                 cShipment.Crates300w,
+                cShipment.AdvancedDock,
 
                 //Colonial
                 cShipment.Vills4,
                 cShipment.Vills5,
+                cShipment.Crates800,
                 cShipment.Crates600w,
                 cShipment.Crates600c,
 
@@ -112,6 +114,13 @@ namespace BuildOrders
         //Add techs
 
         //Add shipments
+        public void AddCrates800()
+        {
+            foodCrateSeconds += 40;
+            woodCrateSeconds += 20;
+            coinCrateSeconds += 20;
+        }
+
         public void AddAenna7()
         {
             AddUnits(cUnit.Aenna, 7);

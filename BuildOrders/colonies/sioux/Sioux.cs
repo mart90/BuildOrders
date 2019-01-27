@@ -30,6 +30,7 @@ namespace BuildOrders
                 //Discovery
                 cShipment.Vills3,
                 cShipment.Crates300w,
+                cShipment.AdvancedDock,
 
                 //Colonial
                 cShipment.Vills4,

@@ -31,8 +31,11 @@ namespace BuildOrders
                 cShipment.NorthernRefugees,
                 cShipment.Crates300w,
                 cShipment.GoodFaithAgreements,
+                cShipment.AdvancedDock,
+                cShipment.EastIndiamen,
 
                 //Colonial
+                cShipment.RenderingPlant,
                 cShipment.Crates700c,
                 cShipment.Crates700w,
                 cShipment.Crates600c,

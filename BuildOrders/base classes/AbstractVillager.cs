@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace BuildOrders
 {
     [Serializable]
-    public abstract class Villager : IBuilder
+    public abstract class Villager : IBuilder, IGatherer
     {
         public Villager()
         {
@@ -14,8 +14,8 @@ namespace BuildOrders
 
         public List<ConstBuilding> allowedBuildings = new List<ConstBuilding>();
 
-        public Resource resourceGathering = Resource.Default;
-        public bool idle = true;
+        public Resource resourceGathering { get; set; } = Resource.Default;
+        public bool idle { get; set; } = true;
         public bool constructing;
         public ConstBuilding buildingQueued { get; set; }
         public int timer { get; set; }

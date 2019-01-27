@@ -18,6 +18,7 @@ namespace BuildOrders
         public List<string> commandHistory = new List<string>();
 
         public bool autoVills = true;
+        public bool autoBoats = true;
         public bool shipmentsReset;
         public bool godmode;
 
@@ -40,6 +41,7 @@ namespace BuildOrders
         {
             colony.HandleIdles();
             MakeVills();
+            MakeFishingBoats();
             SendShipment();
         }
 
@@ -49,6 +51,15 @@ namespace BuildOrders
             {
                 foreach (UnitBuilding tc in colony.FindBuildingsByUnit(cUnit.Villager))
                     MakeUnit(cUnit.Villager);
+            }
+        }
+
+        public virtual void MakeFishingBoats()
+        {
+            if (autoBoats)
+            {
+                foreach (UnitBuilding dock in colony.FindBuildingsByUnit(cUnit.FishingBoat))
+                    MakeUnit(cUnit.FishingBoat);
             }
         }
 
@@ -79,9 +90,23 @@ namespace BuildOrders
 
         public virtual bool MakeUnit(ConstUnit unit)
         {
+            if (unit.name == "FishingBoat" && (colony.schooners || colony.advancedDock))
+            {
+                unit = unit.DeepCopy();
+                if (colony.schooners)
+                {
+                    unit.traintime -= 10;
+                    unit.woodcost -= 20;
+                }
+                if (colony.advancedDock)
+                {
+                    unit.traintime -= 8;
+                }
+            }
+
             var building = GetMinQueueBuilding(unit);
             if (building == null
-                || colony.population + unit.populationcost >= colony.populationCap
+                || colony.population + unit.populationcost > colony.populationCap
                 || colony.age < unit.ageavailable)
                 return false;
 
@@ -250,10 +275,10 @@ namespace BuildOrders
             Console.WriteLine("XP\t" + Convert.ToInt32(colony.xp) + "/" + colony.XPtonextShipment());
             if (this is AsianColonyBuilder)
                 Console.WriteLine("Export\t" + (int)((AsianColony)colony).export);
-            Console.WriteLine("\nVills\t" + colony.villagers.Count);
-            Console.WriteLine("Food v\t" + colony.FoodGatherers().Count);
+            Console.WriteLine("\nVills\t" + (colony.villagers.Count + colony.fishingBoats.Count));
+            Console.WriteLine("Food v\t" + (colony.FoodGatherers().Count + colony.FishGatherers().Count));
             Console.WriteLine("Wood v\t" + colony.WoodGatherers().Count);
-            Console.WriteLine("Coin v\t" + colony.CoinGatherers().Count);
+            Console.WriteLine("Coin v\t" + (colony.CoinGatherers().Count + colony.WhaleGatherers().Count));
             Console.WriteLine("Pop\t" + colony.population + "/" + colony.populationCap);
             Console.WriteLine("Age\t" + colony.age + "\n");
             if (colony.buildingsGathering != Resource.Default)

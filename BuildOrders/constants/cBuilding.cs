@@ -19,12 +19,13 @@ namespace BuildOrders
         }
 
         //Economic
-        public static ConstBuilding TownCenter          = new ConstBuilding("TownCenter", 0, 600, 0, 60, 1, 0);
+        public static ConstBuilding TownCenter          = new ConstBuilding("TownCenter", 0, 500, 0, 50, 1, 0);
         public static ConstBuilding House               = new ConstBuilding("House", 0, 100, 0, 10, 1, 20);
         public static ConstBuilding Market              = new ConstBuilding("Market", 0, 100, 0, 15, 1, 20);
         public static ConstBuilding TradingPost         = new ConstBuilding("TradingPost", 0, 200, 0, 30, 1, 40);
         public static ConstBuilding Consulate           = new ConstBuilding("Consulate", 0, 200, 0, 50, 1, 50);
         public static ConstBuilding FirePit             = new ConstBuilding("FirePit", 0, 100, 0, 20, 1, 10);
+        public static ConstBuilding Dock                = new ConstBuilding("Dock", 0, 200, 0, 20, 1, 40);
 
         //EU military
         public static ConstBuilding Barracks            = new ConstBuilding("Barracks", 0, 200, 0, 30, 2, 20);
@@ -41,14 +42,14 @@ namespace BuildOrders
         public static ConstBuilding NoblesHut           = new ConstBuilding("NoblesHut", 0, 200, 100, 40, 3, 30);
 
         //Unique economic
-        public static ConstBuilding Manor               = new ConstBuilding("Manor", 0, 135, 0, 20, 1, 27);
-        public static ConstBuilding ManorWithVC         = new ConstBuilding("Manor", 0, 88, 0, 20, 1, 27);
-        public static ConstBuilding IndianHouse         = new ConstBuilding("House", 0, 80, 0, 10, 1, 15);
+        public static ConstBuilding Manor               = new ConstBuilding("Manor", 0, 140, 0, 20, 1, 27);
+        public static ConstBuilding ManorWithVC         = new ConstBuilding("Manor", 0, 91, 0, 20, 1, 27);
+        public static ConstBuilding IndianHouse         = new ConstBuilding("House", 0, 60, 0, 60, 1, 15);
         public static ConstBuilding Shrine              = new ConstBuilding("Shrine", 0, 125, 0, 15, 1, 25);
         public static ConstBuilding Village             = new ConstBuilding("Village", 0, 200, 0, 20, 1, 20);
         public static ConstBuilding Longhouse           = new ConstBuilding("Longhouse", 0, 125, 0, 10, 1, 25);
         public static ConstBuilding Mosque              = new ConstBuilding("Mosque", 0, 150, 0, 20, 1, 15);
-        public static ConstBuilding Bank                = new ConstBuilding("Bank", 300, 350, 0, 30, 1, 130);
+        public static ConstBuilding Bank                = new ConstBuilding("Bank", 350, 350, 0, 30, 1, 140);
 
         //Unique military
         public static ConstBuilding WarAcademy          = new ConstBuilding("WarAcademy", 0, 200, 0, 30, 2, 20);

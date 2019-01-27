@@ -16,6 +16,7 @@ namespace BuildOrders
                 cBuilding.IndianHouse,
                 cBuilding.Market,
                 cBuilding.Consulate,
+                cBuilding.Dock,
                 
                 //Military
                 cBuilding.Barracks,
